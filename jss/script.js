@@ -614,7 +614,7 @@
         return;
       }
   
-      location.href = 'index3.html';
+      location.href = 'index3_pagamento.html';;
     });
   }
   
