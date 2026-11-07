@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadraê — Encontre sua quadra e jogue hoje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-text">Quadraê</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Início</a>
+      <a href="reservas.html">Minhas reservas</a>
+    </nav>
+    <div class="header-actions" id="headerActions"></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Reserva online · sem fila</span>
+        <h1>Encontre sua quadra e <em>jogue hoje</em></h1>
+        <p class="hero-sub">Compare horários livres, preços e distância em um só lugar. Confirmação imediata e cancelamento grátis até 4h antes.</p>
+
+        <form class="search-bar" id="searchForm" novalidate>
+          <div class="field">
+            <label for="f-esporte">Esporte</label>
+            <select id="f-esporte">
+              <option value="">Todos</option>
+              <option>Futebol society</option>
+              <option>Beach tennis</option>
+              <option>Tênis</option>
+              <option>Vôlei</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-data">Data</label>
+            <input type="date" id="f-data">
+          </div>
+          <div class="field">
+            <label for="f-hora">Horário</label>
+            <select id="f-hora">
+              <option value="">Qualquer</option>
+              <option>17:00</option>
+              <option>18:00</option>
+              <option>19:00</option>
+              <option>20:00</option>
+              <option>21:00</option>
+              <option>22:00</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-local">Bairro</label>
+            <select id="f-local"></select>
+          </div>
+          <button class="btn btn-primary" type="submit">Buscar quadras</button>
+        </form>
+
+        <p class="hero-note">Mais de 320 quadras em São Paulo · reserva em menos de 2 minutos</p>
+      </div>
+
+      <div class="hero-media">
+        <div class="photo photo-hero" role="img" aria-label="Quadra de gramado sintético iluminada ao anoitecer"></div>
+        <div class="hero-badge">
+          <span class="dot-live"></span>
+          <div>
+            <strong id="heroFreeCount">0 horários livres</strong>
+            <small>hoje, perto de você</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container stats-grid">
+      <article class="stat-card"><span class="stat-icon">🏟️</span><strong id="statCourts">0</strong><span>quadras</span></article>
+      <article class="stat-card"><span class="stat-icon">🏆</span><strong id="statSports">0</strong><span>modalidades</span></article>
+      <article class="stat-card"><span class="stat-icon">🕒</span><strong>24h</strong><span>reserva online</span></article>
+      <article class="stat-card"><span class="stat-icon">✅</span><strong>Grátis</strong><span>cancelamento</span></article>
+    </div>
+  </section>
+
+  <section class="section" id="quadras">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Quadras em destaque</h2>
+          <p class="section-sub" id="resultsLabel">Horários atualizados em tempo real</p>
+        </div>
+        <button class="link-arrow" id="btnLimparBusca" type="button">Limpar busca</button>
+      </div>
+
+      <div class="court-grid" id="courtGrid"></div>
+
+      <div class="empty-state" id="emptyCourts" hidden>
+        <p><strong>Nenhuma quadra encontrada.</strong></p>
+        <p class="muted">Tente outro esporte, horário ou bairro.</p>
+        <button class="btn btn-outline" id="btnResetEmpty" type="button">Limpar filtros</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="agenda">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Horários livres hoje</h2>
+          <p class="section-sub" id="todayLabel">Hoje</p>
+        </div>
+      </div>
+      <div class="slots-card" id="slotsCard"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-contact">
+    <p>contato@quadrae.com.br</p>
+    <p>+55 41 99002-8922</p>
+    <p>Rua Tadeu Milan, 104 — Marechal, Paraná — PR</p>
+    <p>Atendimento: segunda a sábado, 8h às 20h</p>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Quadraê. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal-auth" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Fechar">×</button>
+    <div class="auth-tabs">
+      <button class="auth-tab is-active" data-auth-tab="login" type="button">Entrar</button>
+      <button class="auth-tab" data-auth-tab="signup" type="button">Criar conta</button>
+    </div>
+
+    <form id="formLogin" class="auth-form">
+      <label class="input-label" for="loginEmail">E-mail</label>
+      <input type="email" class="input" id="loginEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="loginSenha">Senha</label>
+      <input type="password" class="input" id="loginSenha" placeholder="••••••••" required>
+      <p class="form-error" id="loginError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+
+    <form id="formSignup" class="auth-form" hidden>
+      <label class="input-label" for="signupNome">Nome completo</label>
+      <input type="text" class="input" id="signupNome" placeholder="Seu nome" required>
+      <label class="input-label" for="signupEmail">E-mail</label>
+      <input type="email" class="input" id="signupEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="signupTelefone">Telefone / WhatsApp</label>
+      <input type="tel" class="input" id="signupTelefone" placeholder="(11) 90000-0000" required>
+      <label class="input-label" for="signupSenha">Senha (mín. 6 caracteres)</label>
+      <input type="password" class="input" id="signupSenha" placeholder="••••••••" required>
+      <p class="form-error" id="signupError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Criar conta</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="jss/script.js"></script>
+</body>
+</html>

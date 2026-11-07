@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadraê — Resumo da reserva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="resumo">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-text">Quadraê</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Início</a>
+      <a href="reservas.html">Minhas reservas</a>
+    </nav>
+    <div class="header-actions" id="headerActions"></div>
+  </div>
+</header>
+
+<main class="screen-mobile">
+  <div class="phone">
+    <div class="phone-status">
+      <span>9:41</span>
+      <span class="phone-status-icons">▮▮▮ ⌁ ▰</span>
+    </div>
+
+    <div class="phone-header">
+      <a href="index1.html" class="icon-btn" aria-label="Voltar">←</a>
+      <h1>Resumo da reserva</h1>
+      <span class="step-pill">3 de 4</span>
+    </div>
+
+    <div class="phone-body">
+      <div class="photo photo-resumo" role="img" aria-label="Foto da arena"></div>
+
+      <div class="resumo-info">
+        <div class="resumo-row">
+          <span class="muted">Nome da arena</span>
+          <strong id="resumoArena">—</strong>
+        </div>
+        <div class="resumo-row">
+          <span class="muted">Data marcada</span>
+          <strong id="resumoData">—</strong>
+        </div>
+        <div class="resumo-row">
+          <span class="muted">Horário</span>
+          <strong id="resumoHora">—</strong>
+        </div>
+      </div>
+
+      <div class="price-table">
+        <div class="price-row">
+          <span>Quadra</span>
+          <span id="resumoPreco">R$ 0,00</span>
+        </div>
+        <div class="price-row">
+          <span>Taxa</span>
+          <span>R$ 0,00</span>
+        </div>
+        <div class="price-row price-total">
+          <span>TOTAL</span>
+          <span id="resumoTotal">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-block" id="btnConfirmar" type="button">Confirmar reserva</button>
+      <p class="secure-note">🔒 Pagamento seguro</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-contact">
+    <p>contato@quadrae.com.br</p>
+    <p>+55 41 99002-8922</p>
+    <p>Rua Tadeu Milan, 104 — Marechal, Paraná — PR</p>
+    <p>Atendimento: segunda a sábado, 8h às 20h</p>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Quadraê. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal-auth" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Fechar">×</button>
+    <div class="auth-tabs">
+      <button class="auth-tab is-active" data-auth-tab="login" type="button">Entrar</button>
+      <button class="auth-tab" data-auth-tab="signup" type="button">Criar conta</button>
+    </div>
+    <form id="formLogin" class="auth-form">
+      <label class="input-label" for="loginEmail">E-mail</label>
+      <input type="email" class="input" id="loginEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="loginSenha">Senha</label>
+      <input type="password" class="input" id="loginSenha" placeholder="••••••••" required>
+      <p class="form-error" id="loginError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+    <form id="formSignup" class="auth-form" hidden>
+      <label class="input-label" for="signupNome">Nome completo</label>
+      <input type="text" class="input" id="signupNome" placeholder="Seu nome" required>
+      <label class="input-label" for="signupEmail">E-mail</label>
+      <input type="email" class="input" id="signupEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="signupTelefone">Telefone / WhatsApp</label>
+      <input type="tel" class="input" id="signupTelefone" placeholder="(11) 90000-0000" required>
+      <label class="input-label" for="signupSenha">Senha (mín. 6 caracteres)</label>
+      <input type="password" class="input" id="signupSenha" placeholder="••••••••" required>
+      <p class="form-error" id="signupError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Criar conta</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="jss/script.js"></script>
+</body>
+</html>

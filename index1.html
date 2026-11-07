@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quadraê — Detalhes da quadra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="detalhe">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-text">Quadraê</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Início</a>
+      <a href="reservas.html">Minhas reservas</a>
+    </nav>
+    <div class="header-actions" id="headerActions"></div>
+  </div>
+</header>
+
+<main class="screen">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a href="index.html">Início</a><span>/</span>
+      <a href="index.html#quadras">Quadras</a><span>/</span>
+      <strong id="crumbName">Quadra</strong>
+    </nav>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <div class="gallery">
+          <div class="photo photo-main" role="img" aria-label="Vista principal da quadra"></div>
+          <div class="gallery-thumbs">
+            <div class="photo photo-thumb" role="img" aria-label="Vista lateral da quadra"></div>
+            <div class="photo photo-thumb" role="img" aria-label="Vestiário"></div>
+            <div class="photo photo-thumb" role="img" aria-label="Área externa"></div>
+          </div>
+        </div>
+
+        <h1 class="detail-title" id="courtTitle">Carregando…</h1>
+        <div class="detail-meta">
+          <span class="muted" id="courtAddress">—</span>
+        </div>
+
+        <div class="info-row" id="infoRow"></div>
+
+        <article class="card">
+          <h2 class="card-title">Sobre a quadra</h2>
+          <p class="muted" id="courtAbout">—</p>
+          <div class="chips" id="courtChips"></div>
+        </article>
+      </div>
+
+      <aside class="booking-card">
+        <div class="price-block">
+          <span class="price" id="courtPrice">R$ 0,00</span>
+          <span class="price-unit">/hora</span>
+          <span class="badge badge-ok">Sem taxa de serviço</span>
+        </div>
+
+        <div class="day-strip" id="dayStrip"></div>
+
+        <p class="label-sm">Horários disponíveis</p>
+        <div class="time-grid" id="timeGrid"></div>
+
+        <div class="legend">
+          <span><i class="sw sw-free"></i> Livre</span>
+          <span><i class="sw sw-sel"></i> Selecionado</span>
+          <span><i class="sw sw-busy"></i> Ocupado</span>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="btnReservar" type="button">Reservar horário</button>
+
+        <ul class="trust-list">
+          <li>✓ Cancelamento grátis até 4h antes</li>
+          <li>✓ Confirmação imediata</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-contact">
+    <p>contato@quadrae.com.br</p>
+    <p>+55 41 99002-8922</p>
+    <p>Rua Tadeu Milan, 104 — Marechal, Paraná — PR</p>
+    <p>Atendimento: segunda a sábado, 8h às 20h</p>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Quadraê. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal-auth" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" data-close aria-label="Fechar">×</button>
+    <div class="auth-tabs">
+      <button class="auth-tab is-active" data-auth-tab="login" type="button">Entrar</button>
+      <button class="auth-tab" data-auth-tab="signup" type="button">Criar conta</button>
+    </div>
+    <form id="formLogin" class="auth-form">
+      <label class="input-label" for="loginEmail">E-mail</label>
+      <input type="email" class="input" id="loginEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="loginSenha">Senha</label>
+      <input type="password" class="input" id="loginSenha" placeholder="••••••••" required>
+      <p class="form-error" id="loginError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+    <form id="formSignup" class="auth-form" hidden>
+      <label class="input-label" for="signupNome">Nome completo</label>
+      <input type="text" class="input" id="signupNome" placeholder="Seu nome" required>
+      <label class="input-label" for="signupEmail">E-mail</label>
+      <input type="email" class="input" id="signupEmail" placeholder="voce@email.com" required>
+      <label class="input-label" for="signupTelefone">Telefone / WhatsApp</label>
+      <input type="tel" class="input" id="signupTelefone" placeholder="(11) 90000-0000" required>
+      <label class="input-label" for="signupSenha">Senha (mín. 6 caracteres)</label>
+      <input type="password" class="input" id="signupSenha" placeholder="••••••••" required>
+      <p class="form-error" id="signupError" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">Criar conta</button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="jss/script.js"></script>
+</body>
+</html>
