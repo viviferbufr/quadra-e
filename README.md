@@ -41,7 +41,7 @@ quadra-e/
 ├── index.html
 ├── index1.html
 ├── index2.html
-├── index3.html
+├── index3_pagamento.html
 ├── reservas.html
 └── README.md
 ```
