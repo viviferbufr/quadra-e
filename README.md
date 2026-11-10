@@ -70,3 +70,4 @@ O Quadraê busca simplificar a organização de atividades esportivas, facilitan
 ---
 
 **Projeto acadêmico — Análise e Desenvolvimento de Sistemas.**
+Link para acesso: https://viviferbufr.github.io/quadra-e/
